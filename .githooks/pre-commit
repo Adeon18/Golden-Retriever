@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+## Pre-commit hook for clearing output cells of added or modified Jupyter Notebooks.
+#
+
+files=`git diff --diff-filter=AM --cached --name-only '*.ipynb'`
+for notebook in $files
+do
+	echo "Clearing output cells from $notebook"
+	jupyter nbconvert --clear-output --to notebook --inplace $notebook
+	git add $notebook
+done
