@@ -18,15 +18,14 @@ class UkrPravdaRetrieval(AbsTaskRetrieval):
     type="Retrieval",
     category="s2p",
     modalities=["text"],
-    eval_splits=["test"],
+    eval_splits=["train"],
     eval_langs=["ukr"],
     main_score="ndcg_at_10",
     )
     
     def load_data(self, **kwargs):
-        dataset = load_dataset("shamotskyi/ukr_pravda_2y", split="test[:100%]")
-        print(dataset)
-        
+        dataset = load_dataset("shamotskyi/ukr_pravda_2y")["train"]
+    
         corpus = {}
         queries = {}
         relevant_docs = {}
@@ -52,11 +51,11 @@ class UkrPravdaRetrieval(AbsTaskRetrieval):
                 queries[doc_id] = title if title is not None else ""
                 relevant_docs[doc_id] = {rel_id: 1 for rel_id in doc_ids}
 
-        self.corpus = {"test": corpus}
-        self.queries = {"test": queries}
-        self.relevant_docs = {"test": relevant_docs}
+        self.corpus = {"train": corpus}
+        self.queries = {"train": queries}
+        self.relevant_docs = {"train": relevant_docs}
 
-        print(f"Loaded {len(self.corpus['test'])} documents.")
+        print(f"Loaded {len(self.corpus['train'])} documents.")
 
 
 class UkrWikiRetrieval(AbsTaskRetrieval):
