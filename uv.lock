@@ -3,6 +3,24 @@ revision = 1
 requires-python = ">=3.12"
 
 [[package]]
+name = "accelerate"
+version = "1.7.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "huggingface-hub" },
+    { name = "numpy" },
+    { name = "packaging" },
+    { name = "psutil" },
+    { name = "pyyaml" },
+    { name = "safetensors" },
+    { name = "torch" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/97/33/47bbd507e3a851d33d19ce7b2141c5ea3689bfae91ba168044d7db24b0e9/accelerate-1.7.0.tar.gz", hash = "sha256:e8a2a5503d6237b9eee73cc8d36cf543f9c2d8dd2c6713450b322f5e6d53a610", size = 376026 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f8/bb/be8146c196ad6e4dec78385d91e92591f8a433576c4e04c342a636fcd811/accelerate-1.7.0-py3-none-any.whl", hash = "sha256:cf57165cca28769c6cf2650812371c81b18e05743dfa3c748524b1bb4f2b272f", size = 362095 },
+]
+
+[[package]]
 name = "aiohappyeyeballs"
 version = "2.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -490,7 +508,8 @@ dependencies = [
     { name = "jupyter" },
     { name = "mteb" },
     { name = "pandas" },
-    { name = "transformers" },
+    { name = "sentence-transformers" },
+    { name = "transformers", extra = ["torch"] },
 ]
 
 [package.metadata]
@@ -499,7 +518,8 @@ requires-dist = [
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "mteb", specifier = ">=1.36.33" },
     { name = "pandas", specifier = ">=2.2.3" },
-    { name = "transformers", specifier = ">=4.50.3" },
+    { name = "sentence-transformers", specifier = ">=4.0.1" },
+    { name = "transformers", extras = ["torch"], specifier = ">=4.50.3" },
 ]
 
 [[package]]
@@ -2356,6 +2376,12 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c0/29/37877123d6633a188997d75dc17d6f526745d63361794348ce748db23d49/transformers-4.50.3.tar.gz", hash = "sha256:1d795d24925e615a8e63687d077e4f7348c2702eb87032286eaa76d83cdc684f", size = 8774363 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/aa/22/733a6fc4a6445d835242f64c490fdd30f4a08d58f2b788613de3f9170692/transformers-4.50.3-py3-none-any.whl", hash = "sha256:6111610a43dec24ef32c3df0632c6b25b07d9711c01d9e1077bdd2ff6b14a38c", size = 10180411 },
+]
+
+[package.optional-dependencies]
+torch = [
+    { name = "accelerate" },
+    { name = "torch" },
 ]
 
 [[package]]

@@ -9,5 +9,6 @@ dependencies = [
     "jupyter>=1.1.1",
     "mteb>=1.36.33",
     "pandas>=2.2.3",
-    "transformers>=4.50.3",
+    "sentence-transformers>=4.0.1",
+    "transformers[torch]>=4.50.3",
 ]
