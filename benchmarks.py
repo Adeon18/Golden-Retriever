@@ -10,7 +10,7 @@ class UkrPravdaRetrieval(AbsTaskRetrieval):
     name="UkrPravdaRetrieval",
     dataset={
         "path": "shamotskyi/ukr_pravda_2y",
-        "revision": "?",
+        "revision": "be2be302c4c659d362b6fae64d7526cd1901bca6",
     },
     description=(
         "Ukrainian Pravda Articles Retrieval Task."
@@ -63,7 +63,7 @@ class UkrWikiRetrieval(AbsTaskRetrieval):
     name="UkrWikiRetrieval",
     dataset={
         "path": "m-rudko-pn/ukrainian-wikipedia-articles",
-        "revision": "1",
+        "revision": "2f6a643539579c8a1f8358b71cb0e5f3c57673cc",
     },
     description=(
         "Ukrainian Wikipedia Articles Retrieval Task. "
